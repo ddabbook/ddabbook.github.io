@@ -3,310 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REVOLUTION : 변화의 시작</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>재황이와 아이들 - 산업혁명의 역사</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Serif+KR:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- 기본 스타일 설정 (Reset & Variables) --- */
+        /* --- 기본 설정 --- */
         :root {
-            --primary-color: #e63946; /* 혁명을 상징하는 붉은색 */
-            --secondary-color: #1d3557; /* 깊은 남색 */
-            --light-bg: #f1faee; /* 밝은 배경색 */
-            --dark-text: #333; /* 기본 텍스트 색상 */
-            --header-font: 'Montserrat', sans-serif;
-            --body-font: 'Noto Sans KR', sans-serif;
+            --white: #ffffff;
+            --black: #111111;
+            --gray-text: #444444;
+            --bg-light: #f9f9f9;
+            --font-title: 'Noto Serif KR', serif; /* 이미지와 비슷한 명조체 */
+            --font-body: 'Noto Sans KR', sans-serif; /* 가독성 좋은 고딕체 */
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: var(--body-font);
-            line-height: 1.6;
-            color: var(--dark-text);
-            background-color: var(--light-bg);
+            font-family: var(--font-body);
+            color: var(--gray-text);
+            line-height: 1.7;
+            background-color: var(--bg-light);
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        h1, h2, h3 {
-            font-family: var(--header-font);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-        }
-
-        section {
-            padding: 80px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        a { text-decoration: none; color: inherit; }
 
         /* --- 내비게이션 바 --- */
-        .navbar {
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 20px 40px;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent); /* 텍스트 가독성을 위한 그라데이션 */
+            color: var(--white);
         }
 
         .logo {
-            font-family: var(--header-font);
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--primary-color);
-        }
-
-        .nav-links a {
-            margin-left: 30px;
+            font-size: 1.2rem;
             font-weight: 700;
-            font-size: 0.9rem;
-            transition: color 0.3s;
+            font-family: var(--font-body);
         }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* --- 히어로 섹션 (메인 타이틀) --- */
-        #hero {
-            height: 90vh;
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1920x1080/?revolution,history'); /* 임시 배경 이미지 */
-            background-size: cover;
-            background-position: center;
+        .nav-links {
             display: flex;
-            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a { opacity: 0.8; transition: opacity 0.3s; }
+        .nav-links a:hover { opacity: 1; }
+
+        /* --- 공통 섹션 스타일 (헤더 영역) --- */
+        .revolution-header {
+            height: 100vh; /* 화면 꽉 채우기 */
+            display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: #fff;
-            padding: 0 20px;
-        }
-
-        #hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        #hero h1 span {
-            color: var(--primary-color);
-        }
-
-        #hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .btn {
-            padding: 15px 40px;
-            background-color: var(--primary-color);
-            color: #fff;
-            border: none;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .btn:hover {
-            background-color: #d32f2f;
-            transform: translateY(-3px);
-        }
-
-        /* --- 소개 섹션 --- */
-        #about {
-            background-color: #fff;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--secondary-color);
             position: relative;
+            background-attachment: fixed; /* 패럴랙스 효과 (배경 고정) */
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        /* 어두운 오버레이 (글자 잘 보이게) */
+        .revolution-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* 이미지 밝기에 따라 조절 */
+        }
+
+        /* 흰색 테두리 박스 타이틀 (요청하신 디자인) */
+        .title-box {
+            position: relative; /* 오버레이 위로 올리기 */
+            z-index: 10;
+            border: 3px solid var(--white); /* 흰색 테두리 */
+            padding: 20px 60px;
+            color: var(--white);
             display: inline-block;
         }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 5px;
-            background-color: var(--primary-color);
-            margin: 20px auto 0;
+
+        .title-box h2 {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            font-weight: 500;
+            margin: 0;
+            letter-spacing: 2px;
         }
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            text-align: left;
+        /* --- 공통 섹션 스타일 (본문 텍스트 영역) --- */
+        .content-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            background-color: var(--white);
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
         }
 
-        .about-text {
-            flex: 1;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .about-image {
-            flex: 1;
-            height: 400px;
-            background-image: url('https://source.unsplash.com/random/600x400/?statue,liberty');
-            background-size: cover;
-            background-position: center;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* --- 주요 특징 섹션 (카드 그리드) --- */
-        #features {
-            background-color: var(--light-bg);
-            text-align: center;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            text-align: left;
-            border-top: 5px solid var(--primary-color);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card h3 {
+        .content-wrap h3 {
             font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
+            margin: 40px 0 20px;
+            color: var(--black);
+            border-left: 4px solid #333;
+            padding-left: 15px;
+        }
+
+        .content-wrap p {
+            margin-bottom: 20px;
+            text-align: justify; /* 양쪽 정렬 */
+            word-break: keep-all; /* 단어 단위 줄바꿈 */
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #000;
+        }
+
+        /* --- 각 섹션별 배경 이미지 설정 --- */
+        /* 1차: 증기기관, 공장 */
+        #sec1 .revolution-header {
+            background-image: url('https://images.unsplash.com/photo-1596637504332-959c90445a6c?q=80&w=2070&auto=format&fit=crop'); 
+        }
+        /* 2차: 자동차, 전구, 생산라인 */
+        #sec2 .revolution-header {
+            background-image: url('https://images.unsplash.com/photo-1496660662242-7067d581292d?q=80&w=2070&auto=format&fit=crop');
+        }
+        /* 3차: 컴퓨터, 칩, 매트릭스 */
+        #sec3 .revolution-header {
+            background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');
+        }
+        /* 4차: AI, 로봇, 미래도시 */
+        #sec4 .revolution-header {
+            background-image: url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop');
         }
 
         /* --- 푸터 --- */
         footer {
-            background-color: var(--secondary-color);
-            color: #fff;
+            background-color: var(--black);
+            color: #888;
             text-align: center;
             padding: 40px 20px;
+            font-size: 0.8rem;
         }
 
-        footer p {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        /* --- 반응형 미디어 쿼리 --- */
+        /* --- 모바일 반응형 --- */
         @media (max-width: 768px) {
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                display: none; /* 모바일에서는 일단 숨김 (실제론 햄버거 메뉴 필요) */
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-image {
-                width: 100%;
-                height: 300px;
-            }
+            .title-box { padding: 15px 30px; border-width: 2px; }
+            .title-box h2 { font-size: 1.8rem; }
+            .nav-links { display: none; } /* 모바일 메뉴 숨김 (필요시 추가) */
+            nav { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar container">
-        <div class="logo">REVOLUTION.</div>
+    <nav>
+        <div class="logo">재황이와 아이들</div>
         <div class="nav-links">
-            <a href="#about">혁명의 정의</a>
-            <a href="#features">주요 특징</a>
-            <a href="#contact">탐구 과제</a>
+            <a href="#sec1">제 1차 산업혁명</a>
+            <a href="#sec2">제 2차 산업혁명</a>
+            <a href="#sec3">제 3차 산업혁명</a>
+            <a href="#sec4">제 4차 산업혁명</a>
+            <a href="#">사이드 정보</a>
+            <i class="fas fa-search"></i>
         </div>
     </nav>
 
-    <section id="hero">
-        <h1>세상을 뒤바꾼<br><span>거대한 흐름</span></h1>
-        <p>과거의 질서를 무너뜨리고 새로운 시대를 열어젖힌 역사 속 혁명들의 순간을 탐구합니다. 변화는 어떻게 시작되었을까요?</p>
-        <a href="#about" class="btn">탐구 시작하기</a>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">혁명(Revolution)이란?</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        <strong>혁명은 단순한 변화가 아닙니다.</strong> 기존의 사회 구조, 정치 체제, 혹은 사고방식을 근본적으로 뒤엎는 급격하고 본질적인 변화를 의미합니다.
-                    </p>
-                    <p>
-                        역사적으로 산업 혁명, 시민 혁명 등 다양한 형태의 혁명이 존재했으며, 이들은 인류의 삶을 이전과는 완전히 다른 모습으로 바꾸어 놓았습니다. 우리는 이 사이트를 통해 혁명의 원인과 과정, 그리고 그 결과를 깊이 있게 들여다보고자 합니다.
-                    </p>
-                    <p>
-                        *참고: 이곳에 여러분이 조사한 혁명의 정의와 개요 내용을 구체적으로 적어주세요. Google Sites의 내용을 바탕으로 재구성하면 좋습니다.*
-                    </p>
-                </div>
-                <div class="about-image"></div>
+    <section id="sec1">
+        <div class="revolution-header">
+            <div class="title-box">
+                <h2>제 1차 산업혁명</h2>
             </div>
+        </div>
+        <div class="content-wrap">
+            <p>18세기 영국에서 제철 산업이 발전하면서 그 재료인 철광석 녹이기 위한 열원의 수요가 늘어났다. 18세기 동안 표층에서 채굴될 수 있는 석탄의 양이 고갈되면서 석탄을 대거 확보하기 위한 펌프를 개발하기 시작했고 그중에 대표적인 펌프가 1712년 <span class="highlight">토머스 뉴커먼이 발명한 증기 기관</span>이다.</p>
+            
+            <p>뉴커먼의 증기기관은 석탄으로 실린더를 가열해 증기가 피스톤을 밀어내도록 한 뒤 냉각해서 피스톤이 제자리로 돌아가도록 한 다음 다시 가열해 증기가 피스톤을 밀어내는 것을 반복하는 장치였다. 그 후 <span class="highlight">제임스 와트</span>는 뉴커먼의 증기기관이 연료소비가 많고 가열하는 데 시간이 걸린다는 비효율성을 개선해 광산 뿐 아니라 수많은 공장에서 사용할 수 있는 증기기관을 만들었다.</p>
+            
+            <p>인간의 노동력 없이도 일정한 방식의 작동을 끊임없이 반복할 수 있게 되면서 공장의 수는 빠르게 늘어났다. 1760~70년대 방직과정이 기계화된 데 이어 1785년에는 증기기관을 활용한 직기가 나오면서 방직공장이 빠르게 늘어났다. 기계가 방직공들의 노동을 대체해나간 지 50년도 안 돼 방직 노동자 1인당 생산성은 200배 가량 증가했다.</p>
+            
+            <h3>사회적 변화와 갈등</h3>
+            <p>이러한 증기기관의 도입으로 농업 중심의 사회에서 산업 중심의 도시 사회로 급격한 구조 변화가 일어났다. 특히 방직기와 같은 기계화 도입으로 생산성이 급증하였으며, 노동자들의 생활 수준이 향상되었다. 이러한 변화는 노동력의 효율적 활용과 대량 생산 체계의 기반을 마련했다.</p>
+            
+            <p>그런데 기계가 인간을 대체하게 되면서 생산력에서 기계와의 경쟁에서 뒤진 인간 노동자는 점차 설 자리를 잃게 되었다. 1811~1817년 영국 중북부의 직물 공업 지대에서는 노동자들이 <span class="highlight">'러다이트 운동'</span>이라 불리는 기계 파괴 운동을 일으키기도 했지만 기계는 물러서지 않았다. 한 대의 기계가 여러 사람이 하던 일을 대신하면서 일자리가 줄어들어 실업자가 넘쳐났고, 노동자의 임금은 점차 낮아져 그들의 생활고는 심각해져 갔다.</p>
         </div>
     </section>
 
-    <section id="features">
-        <div class="container">
-            <h2 class="section-title">혁명의 핵심 요소</h2>
-            <p>모든 혁명에는 공통적으로 발견되는 특징들이 있습니다.</p>
-            
-            <div class="grid-container">
-                <div class="card">
-                    <h3>01. 구체제의 모순</h3>
-                    <p>혁명은 우연히 일어나지 않습니다. 기존 체제가 더 이상 사회 구성원들의 요구를 수용하지 못하고 모순이 극에 달했을 때, 변화의 열망이 싹트기 시작합니다.</p>
-                </div>
-                <div class="card">
-                    <h3>02. 급격한 변화</h3>
-                    <p>점진적인 개혁과 달리, 혁명은 비교적 짧은 시간 안에 사회의 근간을 뿌리째 흔드는 폭발적인 변화를 수반합니다.</p>
-                </div>
-                <div class="card">
-                    <h3>03. 새로운 패러다임</h3>
-                    <p>혁명 이후의 세상은 이전과 같을 수 없습니다. 새로운 지배 계급의 등장, 새로운 기술의 도입 등 완전히 새로운 질서가 자리 잡게 됩니다.</p>
-                </div>
+    <section id="sec2">
+        <div class="revolution-header">
+            <div class="title-box">
+                <h2>제 2차 산업혁명</h2>
             </div>
+        </div>
+        <div class="content-wrap">
+            <h3>포드 시스템과 대량생산</h3>
+            <p><span class="highlight">포드 시스템</span>은 사람이 부품을 들고 움직이던 작업 방법을 획기적으로 변경하여 부품이 컨베이어를 타고 사람에게로 오는 역발상 시스템이다. 즉 사람은 정형화된 단순한 작업을 반복하는 것만으로도 대량생산이 가능하게 되었다. 또한 대량생산 체제가 구축되면서 과거 특권층만이 탈 수 있던 자동차를 일반 서민도 탈 수 있게 되는 '마이 카'시대의 새 지평이 열렸다.</p>
+
+            <p>제 1차 산업혁명 이후 철도와 증기선에 기반한 교통의 발달은 산업혁신의 지리적 범위를 빠르게 확장시켰고 이로인해 새로운 산업과 과학기술의 발전이 가속화되기 시작했다.</p>
+            
+            <h3>통신과 에너지의 혁명</h3>
+            <p>통신 분야에서는 1876년 알렉산더 벨이 전화를 발명하고 1896년에 굴리엘모 마르코니가 무선전신을 발명하였으며 1918년에는 에드윈 암스트롱이 FM라디오 특허를 출원하는 등 통신기술 발전이 이뤄지면서 정보의 교환속도가 비약적으로 빨라지게 됐다.</p>
+            
+            <p>또한 많은 발명가들이 외연기관에 비해 열효율을 비약적으로 향상시킬 수 있는 내연기관을 발명하였다. 대표적으로 독일의 고틀리프 다임러가 1883년에 가솔린 내연기관을 발명했다. 이런 혁신과 더불어 토머스 에디슨이 1879년에 백열등을 발명하는 등 <span class="highlight">전기의 산업화</span>가 이뤄지면서 인류는 제 1차 산업혁명 시대의 에너지원인 증기를 대체할 수 있는 새로운 에너지원을 손에 넣게 됐다.</p>
+            
+            <p>이 밖에 강철의 대량생산, 인공염료의 발전, 컨베이어 벨트 시스템의 등장과 같은 제조업 혁신이 이뤄졌다. 전기의 상용화와 내연기관의 도입은 산업 구조를 혁신적으로 변화시켰다. 전기의 사용은 생산 공정의 자동화를 가능하게 했으며, 내연기관은 교통수단의 효율성을 극대화시켰다.</p>
+            
+            <p>알렉산더 벨의 전화 발명은 실시간 통신을 가능하게 하여 비즈니스와 사회 전반의 소통 방식을 혁신적으로 변화시켰다. 이러한 기술들은 대량 생산과 대량 소비를 가능하게 하여 현대 산업 사회의 기초를 마련하였다.</p>
+        </div>
+    </section>
+
+    <section id="sec3">
+        <div class="revolution-header">
+            <div class="title-box">
+                <h2>제 3차 산업혁명</h2>
+            </div>
+        </div>
+        <div class="content-wrap">
+            <p>변화는 여기서 그치지 않았다. 컴퓨터는 점점 작아지고, 빨라지고, 상호간 통신을 시도하더니 1992년 WWW(World Wide Web)를 시작으로 소위 <span class="highlight">정보화 혁명, IT혁명</span>이 시작되었다.</p>
+
+            <p>인터넷을 통해 정보가 넘쳐나면서 이젠 정보를 갖고 있는 사람이 아닌, 정보가 어디에 있는지 아는 사람이 힘을 갖는 세상으로 바뀌었다. 제2차 산업혁명기가 하드웨어가 주도했던 시대라면, 제3차 산업혁명기는 소프트웨어가 보다 주목받게 된 시대라 할 수 있다.</p>
+            
+            <h3>컴퓨터의 대중화</h3>
+            <p>1946년에 공개된 세계 최초의 전자식 컴퓨터인 ‘애니악’ 이후 점진적으로 컴퓨터 발전이 이뤄지다가 스티브 잡스와 스테판 워즈니악이 1976년 ‘애플 1’, 1977년에 ‘애플 2’를 개발하고 1981년에 IBM이 본격적으로 PC 시장을 개화시키면서 컴퓨터의 대중화가 이뤄지게 된다. 이후 반도체와 컴퓨터 주변기기 산업을 크게 성장시키며 오늘날에 이르렀다.</p>
+            
+            <p>이러한 기술들은 정보의 디지털화와 자동화를 가능하게 하여 생산성과 효율성을 극대화시켰다. 인터넷의 보급은 글로벌화된 정보 사회를 형성하였으며, 이는 경제, 교육, 의료 등 다양한 분야에 걸쳐 혁신을 일으켰다. 반도체 기술의 발전은 스마트폰, 개인용 컴퓨터 등 개인 전자기기의 보급을 가속화시켰다.</p>
+        </div>
+    </section>
+
+    <section id="sec4">
+        <div class="revolution-header">
+            <div class="title-box">
+                <h2>제 4차 산업혁명</h2>
+            </div>
+        </div>
+        <div class="content-wrap">
+            <p>이제 사이버 세상과 물리적인 세상의 경계가 모호해지는 시대가 되고 있다. 제3차 산업혁명이 IT 혁명이라면, 제4차 산업혁명은 <span class="highlight">ICT(Information and Communications Technology) 혁명</span>이라 할 수 있다.</p>
+
+            <p>본래 소통은 생물, 특히 인간의 전유물이었지만 이제는 아니다. 이제는 물건이 사람에게 말을 걸거나 물건끼리 다양한 소통 방법을 찾아가고 있다. 점점 일상생활에서 제4차 산업혁명이 몰고 오는 변화를 체감할 수 있게 된다. 기술의 발달로 사람의 뇌세포인 뉴런과 신경망을 모방하면서 <span class="highlight">인공신경망, 딥러닝</span>이 탄생했다.</p>
+            
+            <p>근래에는 이들의 성능이 점차 좋아지면서 궁극에는 컴퓨터가 스스로 학습과 판단을 할 수 있는 수준까지 도달했다. 수많은 센서와 사물의 연결로 이루어진 사물인터넷은 필연적으로 수많은 데이터를 생성하며 이는 빅데이터이다.</p>
+            
+            <h3>초연결과 융합의 시대</h3>
+            <p>이 빅데이터를 효율적으로 저장하기 위해서는 클라우드가 필요하며, 정확하게 분석하기 위해서는 인공지능이 필요하다. 이처럼 제4차 산업혁명의 핵심기술들은 서로간의 영역을 허물며 서로 보완적이다.</p>
+            
+            <p>예를 들어 자율주행 자동차는 도로 센서와 위성 신호로부터 수집된 방대한 데이터를 실시간으로 빅데이터 서버에 저장하고, 클라우드를 통해 업데이트하며, 인공지능 알고리즘이 이를 분석하여 안전한 주행 경로를 예측한다.</p>
+            
+            <p>이 기술들을 바탕으로 자율주행자동차, 스마트 쉽, 스마트 발전소, 스마트 시티, 우주정거장 등 많은 미래형 제품과 인프라의 구현이 가능해진다. 이처럼 융합적 구조를 통해 생활 속 새로운 가치가 창출된다는 점이 4차 산업혁명의 특징이다. 따라서 4차 산업혁명은 단순히 새로운 도구의 등장에 그치지 않고, 기술들이 상호 보완적으로 연결되어 사회 전반의 구조를 변화시키는 혁명이라 할 수 있다.</p>
+            
+            <p>이러한 기술 발전을 통해 사람들은 교통과 물류 분야에서 보다 안전하고 효율적인 생활을 누릴 수 있게 되었고, 실시간 데이터 분석과 클라우드를 활용한 기술 업데이트로 생활 환경과 도시 시스템이 지능적으로 관리되기 시작했다. 기술 간 융합으로 생활과 사회 구조가 이전보다 긴밀하게 연결되고, 일상 속 의사결정과 활동의 효율성이 크게 향상되었다.</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>SAWOO HIGH SCHOOL PROJECT | REVOLUTION 탐구</p>
+            <p>재황이와 아이들 | 산업혁명 탐구 프로젝트</p>
             <p>© 2023 Student Project. All rights reserved.</p>
         </div>
     </footer>
