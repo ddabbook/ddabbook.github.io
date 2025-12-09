@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOLUTION : 변화의 시작</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 기본 스타일 설정 (Reset & Variables) --- */
+        :root {
+            --primary-color: #e63946; /* 혁명을 상징하는 붉은색 */
+            --secondary-color: #1d3557; /* 깊은 남색 */
+            --light-bg: #f1faee; /* 밝은 배경색 */
+            --dark-text: #333; /* 기본 텍스트 색상 */
+            --header-font: 'Montserrat', sans-serif;
+            --body-font: 'Noto Sans KR', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--header-font);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* --- 내비게이션 바 --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: var(--header-font);
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- 히어로 섹션 (메인 타이틀) --- */
+        #hero {
+            height: 90vh;
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1920x1080/?revolution,history'); /* 임시 배경 이미지 */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        #hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        #hero h1 span {
+            color: var(--primary-color);
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #d32f2f;
+            transform: translateY(-3px);
+        }
+
+        /* --- 소개 섹션 --- */
+        #about {
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 5px;
+            background-color: var(--primary-color);
+            margin: 20px auto 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            text-align: left;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            height: 400px;
+            background-image: url('https://source.unsplash.com/random/600x400/?statue,liberty');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- 주요 특징 섹션 (카드 그리드) --- */
+        #features {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: left;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        /* --- 푸터 --- */
+        footer {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* --- 반응형 미디어 쿼리 --- */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none; /* 모바일에서는 일단 숨김 (실제론 햄버거 메뉴 필요) */
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar container">
+        <div class="logo">REVOLUTION.</div>
+        <div class="nav-links">
+            <a href="#about">혁명의 정의</a>
+            <a href="#features">주요 특징</a>
+            <a href="#contact">탐구 과제</a>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <h1>세상을 뒤바꾼<br><span>거대한 흐름</span></h1>
+        <p>과거의 질서를 무너뜨리고 새로운 시대를 열어젖힌 역사 속 혁명들의 순간을 탐구합니다. 변화는 어떻게 시작되었을까요?</p>
+        <a href="#about" class="btn">탐구 시작하기</a>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">혁명(Revolution)이란?</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        <strong>혁명은 단순한 변화가 아닙니다.</strong> 기존의 사회 구조, 정치 체제, 혹은 사고방식을 근본적으로 뒤엎는 급격하고 본질적인 변화를 의미합니다.
+                    </p>
+                    <p>
+                        역사적으로 산업 혁명, 시민 혁명 등 다양한 형태의 혁명이 존재했으며, 이들은 인류의 삶을 이전과는 완전히 다른 모습으로 바꾸어 놓았습니다. 우리는 이 사이트를 통해 혁명의 원인과 과정, 그리고 그 결과를 깊이 있게 들여다보고자 합니다.
+                    </p>
+                    <p>
+                        *참고: 이곳에 여러분이 조사한 혁명의 정의와 개요 내용을 구체적으로 적어주세요. Google Sites의 내용을 바탕으로 재구성하면 좋습니다.*
+                    </p>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2 class="section-title">혁명의 핵심 요소</h2>
+            <p>모든 혁명에는 공통적으로 발견되는 특징들이 있습니다.</p>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <h3>01. 구체제의 모순</h3>
+                    <p>혁명은 우연히 일어나지 않습니다. 기존 체제가 더 이상 사회 구성원들의 요구를 수용하지 못하고 모순이 극에 달했을 때, 변화의 열망이 싹트기 시작합니다.</p>
+                </div>
+                <div class="card">
+                    <h3>02. 급격한 변화</h3>
+                    <p>점진적인 개혁과 달리, 혁명은 비교적 짧은 시간 안에 사회의 근간을 뿌리째 흔드는 폭발적인 변화를 수반합니다.</p>
+                </div>
+                <div class="card">
+                    <h3>03. 새로운 패러다임</h3>
+                    <p>혁명 이후의 세상은 이전과 같을 수 없습니다. 새로운 지배 계급의 등장, 새로운 기술의 도입 등 완전히 새로운 질서가 자리 잡게 됩니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>SAWOO HIGH SCHOOL PROJECT | REVOLUTION 탐구</p>
+            <p>© 2023 Student Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
